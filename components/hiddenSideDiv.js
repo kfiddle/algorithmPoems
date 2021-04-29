@@ -11,5 +11,5 @@ export const MakeHiddenSideDiv = () => {
 
   setTimeout(()=> {
       hidingPanel.style.background = '#cbd1d2';
-  }, 500)
+  }, 600)
 };

@@ -1,6 +1,5 @@
 import { HtmlElement } from "./HtmlElement.js";
 import { SideBar } from "./SideBar.js";
-import { MakeHiddenSideDiv } from './hiddenSideDiv.js';
 
 export const makeHeaderAndInnerComponents = () => {
   const header = new HtmlElement("header", "header");
@@ -8,7 +7,7 @@ export const makeHeaderAndInnerComponents = () => {
   const innerStripesBox = new HtmlElement("div", "bars");
   addWarrantOfficerStripes();
 
-  header.element.innerHTML = `<h1>GRACIE DOODLE BUG</h1>`;
+  header.element.innerHTML = `<h1>KEN JOHNSTON SOFTWARE</h1>`;
 
   outerBarsBox.element.id = "outerNavDiv";
   setTimeout(() => {
@@ -34,7 +33,6 @@ export const makeHeaderAndInnerComponents = () => {
   outerBarsBox.element.addEventListener("click", () => {
     spinningBars();
     SideBar.slideIn();
-    MakeHiddenSideDiv();
   });
 
   outerBarsBox.element.appendChild(innerStripesBox.element);
