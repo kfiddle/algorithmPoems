@@ -7,7 +7,10 @@ export const makeHeaderAndInnerComponents = () => {
   const innerStripesBox = new HtmlElement("div", "bars");
   addWarrantOfficerStripes();
 
-  header.element.innerHTML = `<h1>KEN JOHNSTON SOFTWARE</h1>`;
+  header.element.innerHTML = `<div class="titleDiv">
+    <h1 class="mainTitle">KEN JOHNSTON SOFTWARE</h1>
+    <h2>FULL STACK DEVELOPER</h2> 
+                                            </div>`;
 
   outerBarsBox.element.id = "outerNavDiv";
   setTimeout(() => {

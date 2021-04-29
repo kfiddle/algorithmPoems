@@ -19,3 +19,7 @@ export const BetterElement =(tag, ...classList) => {
     return elementToReturn;
 }
 
+export const waitAndThen = (callback, time) => {
+    setTimeout(callback, time);
+}
+
