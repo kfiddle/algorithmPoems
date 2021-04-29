@@ -1,5 +1,4 @@
 import { BetterElement } from "./betterElement.js";
-console.log("were here");
 
 export const MakeHiddenSideDiv = () => {
   let hidingPanel = BetterElement("div", "hiddenSideDiv");

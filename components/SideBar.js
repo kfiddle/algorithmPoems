@@ -1,7 +1,6 @@
 import { HtmlElement } from "./HtmlElement.js";
 import { BetterElement } from "./betterElement.js";
-import { MakeHiddenSideDiv } from './hiddenSideDiv.js';
-
+import { MakeHiddenSideDiv } from "./hiddenSideDiv.js";
 
 let sideBarOpen = false;
 
@@ -14,7 +13,7 @@ const menuItems = [
   "contact",
 ];
 
-export const SideBar = BetterElement("div", "sideBar");
+export const SideBar = BetterElement("div", "sideBar", 'closed');
 document.getElementById("app").appendChild(SideBar);
 
 SideBar.slideIn = () => {
@@ -26,7 +25,10 @@ SideBar.slideIn = () => {
       SideBar.menuAppears(menuItemIndex);
     }, 650);
     sideBarOpen = true;
-    
+
+    setTimeout(() => {
+      SideBar.classList.remove('closed');
+    }, 600);
   } else {
     SideBar.rollout("translateX(-25vw)");
     SideBar.eraseAllKids();
@@ -55,6 +57,6 @@ SideBar.menuAppears = (menuItemIndex) => {
       });
     }, 80);
   }
-  
+
   requestAnimationFrame(menuItemPopOut);
 };

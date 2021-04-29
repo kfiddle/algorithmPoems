@@ -65,11 +65,15 @@ header {
   flex-direction: column;
   background: white;
   background: linear-gradient(to Right, white, #565655);
-
   width: 22vw;
   height: 100vh;
   transform: translateX(-25vw);
   transition: .75s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.sideBar.closed {
+  background: linear-gradient(to Right, white, #5a3939);
+  transition: 1s;
 }
 
 .sideBarItem {

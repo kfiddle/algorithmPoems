@@ -18,3 +18,4 @@ export const BetterElement =(tag, ...classList) => {
 
     return elementToReturn;
 }
+
