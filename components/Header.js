@@ -27,6 +27,7 @@ export const makeHeaderAndInnerComponents = () => {
 
   outerBarsBox.element.addEventListener("mouseover", () => {
     scrollingBars(resetBar.bind("up"));
+    
   });
 
   outerBarsBox.element.addEventListener("mouseout", () => {
@@ -35,7 +36,7 @@ export const makeHeaderAndInnerComponents = () => {
 
   outerBarsBox.element.addEventListener("click", () => {
     spinningBars();
-    SideBar.slideIn();
+    SideBar.isClicked();
   });
 
   outerBarsBox.element.appendChild(innerStripesBox.element);
@@ -69,4 +70,6 @@ export const makeHeaderAndInnerComponents = () => {
       }, j * 70);
     }
   }
+
+
 };

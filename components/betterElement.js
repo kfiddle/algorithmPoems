@@ -20,6 +20,6 @@ export const BetterElement =(tag, ...classList) => {
 }
 
 export const waitAndThen = (callback, time) => {
-    setTimeout(callback, time);
+    setTimeout(() => {  callback() }, time);
 }
 
