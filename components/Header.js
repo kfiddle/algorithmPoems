@@ -4,6 +4,7 @@ import { SideBar } from "./SideBar.js";
 export const makeHeaderAndInnerComponents = () => {
   const header = new HtmlElement("header", "header");
   const outerBarsBox = new HtmlElement("div", "outerNavDiv");
+  outerBarsBox.element.id = 'barsBox';
   const innerStripesBox = new HtmlElement("div", "bars");
   addWarrantOfficerStripes();
 

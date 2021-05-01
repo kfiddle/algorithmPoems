@@ -4,6 +4,7 @@ import { MakeHiddenSideDiv } from "./hiddenSideDiv.js";
 import { AllPanelsList } from "./openADoor.js";
 
 let sideBarIsOpen = false;
+let onOffSwitch = true;
 
 const menuItems = [
   // "beautiful recursion",
@@ -58,7 +59,7 @@ SideBar.menuAppears = (menuItemIndex) => {
         itemToAdd.element.innerText = menuItems[menuItemIndex];
         itemToAdd.element.addEventListener("click", () => {
           AllPanelsList.panels[menuItemIndex - 1].open();
-          glowingBars();
+          AllPanelsList.createGlow(onOffSwitch);
 
           setTimeout(() => {
             SideBar.close();
@@ -79,33 +80,4 @@ SideBar.menuAppears = (menuItemIndex) => {
 
   requestAnimationFrame(menuItemPopOut);
 
-  function glowingBars() {
-    let barsToGlow = document.querySelector(".bars").childNodes;
-    barsToGlow.forEach((stripe) => (stripe.style.opacity = ".2"));
-    barsToGlow.forEach(
-      (stripe) => (stripe.style.backgroundColor = "gold")
-    );
-    let barIndex = 0;
-    animateGlowingStripes(barsToGlow, barIndex);
-  }
-
-  function animateGlowingStripes(barsToGlow, barIndex) {
-    function highlightAStripe(timestamp) {
-      setTimeout(() => {
-        if (barIndex > 2) {
-          barIndex = 0;
-        }
-
-        for (let i = 0; i < barsToGlow.length; i++) {
-          i != barIndex ? barsToGlow[i].style.opacity = '.2' : barsToGlow[i].style.opacity = '1';
-        }
-    
-        barIndex++;
-        requestAnimationFrame(() => {
-          animateGlowingStripes(barsToGlow, barIndex);
-        });
-      }, 300);
-    }
-    requestAnimationFrame(highlightAStripe);
-  }
-};
+}
