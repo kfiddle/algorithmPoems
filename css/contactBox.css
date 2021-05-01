@@ -47,6 +47,14 @@ input {
   transform: translateX(100vw);
 }
 
+.submitButton {
+  position: relative;
+  bottom: -38vh;
+  width: 10rem;
+  height: 2rem;
+  background-color: darkblue;
+}
+
 .myContactInfo {
   display: flex;
   flex-direction: column;

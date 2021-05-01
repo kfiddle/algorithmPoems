@@ -1,0 +1,20 @@
+
+.headShotDiv{
+    position: absolute;
+    top: 10vh;
+    width: 50vw;
+    height: 100vh;
+    background-color: blueviolet;
+}
+
+.story {
+    position: absolute;
+    top: 10vh;
+    right: 0;
+    width: 50vw;
+    height: 100vh;
+    background-color: green;
+
+
+
+}

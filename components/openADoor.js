@@ -1,4 +1,5 @@
 import { ContactBox } from "./ContactForm.js";
+import { aboutCurtains } from './aboutPanel.js';
 
 const aFunction = {
   open: function () {
@@ -25,7 +26,7 @@ const aSecondFunction = {
 };
 
 export const AllPanelsList = {
-  panels: [aFunction, aSecondFunction, ContactBox],
+  panels: [aFunction, aboutCurtains, ContactBox],
 
   closeAnyPanelIfOpen: function () {
     for (let panel of this.panels) {

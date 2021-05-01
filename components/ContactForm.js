@@ -13,14 +13,17 @@ export const ContactBox = {
     const myContactInfoBox = BetterElement("div", "myContactInfo");
     const myContactInfoSentence = BetterElement("h2");
     myContactInfoSentence.innerHTML = "Or simply write me at...";
-    const myEmail = BetterElement('h1', 'myEmail');
-    myEmail.innerHTML = '@SuperDuperEmail';
+    const myEmail = BetterElement("h1", "myEmail");
+    myEmail.innerHTML = "@SuperDuperEmail";
 
     const inputs = {
       nameInput: BetterElement("input"),
       emailInput: BetterElement("input"),
       phoneInput: BetterElement("input"),
     };
+
+    const submitButton = BetterElement("button", "submitButton");
+    submitButton.innerText = "Submit";
 
     contactBoxHeader.id = "contactBoxHeader";
     inputs.nameInput.id = "nameInput";
@@ -36,10 +39,9 @@ export const ContactBox = {
     }
 
     myContactInfoBox.appendChild(myContactInfoSentence);
+    this.contactBox.appendChild(submitButton);
 
-    this.contactBox
-      .appendChild(myContactInfoBox)
-      .appendChild(myEmail)
+    this.contactBox.appendChild(myContactInfoBox).appendChild(myEmail);
     this.contactBox.appendChild(contactBoxHeader).appendChild(header);
     document
       .getElementById("app")
@@ -56,7 +58,9 @@ export const ContactBox = {
       }, 1000);
     }
 
-    waitAndThen(()=> { myContactInfoBox.style.transform = 'translateY(40vh)'}, 1000)
+    waitAndThen(() => {
+      myContactInfoBox.style.transform = "translateY(45vh)";
+    }, 1000);
 
     this.isOpen = true;
   },
@@ -66,7 +70,9 @@ export const ContactBox = {
     this.contactBox.eraseAllKids();
     let app = document.getElementById("app");
     waitAndThen(() => {
+      console.log(app.lastChild)
       app.removeChild(app.lastChild);
+      app.removeChild(this.contactBox);
     }, 200);
 
     this.isOpen = false;
