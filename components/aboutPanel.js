@@ -43,7 +43,7 @@ export const aboutCurtains = {
     </h2>`;
     storyBlocks.bottom.innerHTML = `<h2>...and although like all the cool kids these days, 
     I'm exploring as much as I can in libraries like React, let's not forget that front-end skill is still based 
-    in plain, old, vanilla Javascript
+    in plain, old, vanilla Javascript.
     </h2>`;
 
     for (let block in storyBlocks) {
