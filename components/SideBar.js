@@ -3,6 +3,8 @@ import { BetterElement, waitAndThen } from "./betterElement.js";
 import { MakeHiddenSideDiv } from "./hiddenSideDiv.js";
 import { AllPanelsList } from "./openADoor.js";
 
+let app = document.getElementById('app');
+
 let sideBarIsOpen = false;
 let onOffSwitch = true;
 
@@ -16,12 +18,13 @@ const menuItems = [
 ];
 
 export const SideBar = BetterElement("div", "sideBar", "closed");
-document.getElementById("app").appendChild(SideBar);
+app.appendChild(SideBar);
 
 SideBar.close = () => {
   SideBar.rollout("translateX(-25vw)");
   SideBar.eraseAllKids();
   SideBar.classList.add("closed");
+  app.removeChild(app.querySelector('.hiddenSideDiv'));
   sideBarIsOpen = false;
 };
 

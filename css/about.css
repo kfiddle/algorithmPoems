@@ -1,20 +1,55 @@
+.headShotCurtain {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10vh;
+  width: 30vw;
+  height: 90vh;
+  transform: translateX(-52vw);
+  opacity: 0.2;
+  background: #708090;
+  background: linear-gradient(
+    to Right,
+    white,
+    white,
+    white,
+    white,
+    #708090,
+    hsl(19, 89%, 30%)
+  );
+  transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
+}
 
-.headShotDiv{
-    position: absolute;
-    top: 10vh;
-    width: 50vw;
-    height: 100vh;
-    background-color: blueviolet;
+.actualHeadShot {
+  width: 20vw;
+  filter: brightness(300%);
+  transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
 .story {
-    position: absolute;
-    top: 10vh;
-    right: 0;
-    width: 50vw;
-    height: 100vh;
-    background-color: green;
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  width: 70vw;
+  height: 90vh;
+  transform: translateX(70vw);
+  background-color: green;
+  transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
+}
 
+.storyBlock{
+  transform: translateX(70vw);
+}
 
+.topThirdStory{
+  transition: .5s cubic-bezier(0.4, 0, 0.4, 1);
+}
 
+.middleThirdStory{
+  transition: .8s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.bottomThirdStory{
+    transition: 1.1s cubic-bezier(0.4, 0, 0.4, 1);
 }

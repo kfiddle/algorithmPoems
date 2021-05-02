@@ -1,4 +1,5 @@
 import { BetterElement, waitAndThen } from "./betterElement.js";
+let app = document.getElementById('app');
 
 export const ContactBox = {
   contactBox: BetterElement("div", "contactBox"),
@@ -43,8 +44,7 @@ export const ContactBox = {
 
     this.contactBox.appendChild(myContactInfoBox).appendChild(myEmail);
     this.contactBox.appendChild(contactBoxHeader).appendChild(header);
-    document
-      .getElementById("app")
+    app
       .appendChild(this.contactBox)
       .appendChild(inputsBox);
 
@@ -68,10 +68,7 @@ export const ContactBox = {
   close: function () {
     this.contactBox.style.transform = "translateY(100vh)";
     this.contactBox.eraseAllKids();
-    let app = document.getElementById("app");
     waitAndThen(() => {
-      console.log(app.lastChild)
-      app.removeChild(app.lastChild);
       app.removeChild(this.contactBox);
     }, 200);
 
