@@ -15,14 +15,14 @@ export const aboutCurtains = {
 
     waitAndThen(() => {
       this.headShotCurtain.rollout("translateX(0vw)");
-    }, 400),
+    }, 200),
       waitAndThen(() => {
         this.headShotCurtain.style.opacity = "1";
-      }, 850);
+      }, 200);
     waitAndThen(() => {
       this.headShotCurtain.style.background = "#708090";
       this.headShot.style.filter = "brightness(90%)";
-    }, 900);
+    }, 700);
     this.isOpen = true;
   },
 
@@ -37,13 +37,18 @@ export const aboutCurtains = {
       bottom: BetterElement("div", "bottomThirdStory", "storyBlock"),
     };
 
-    storyBlocks.top.innerHTML = "it's howdy doody time";
-    storyBlocks.middle.innerHTML = "gracie has a double chin";
-    storyBlocks.bottom.innerHTML = "I will be huge in a few years";
+    storyBlocks.top.innerHTML = `<h2>Until recently, I spent each day as a professional violin player immersed in a centuries-old world. I spent thousands of hours with a piece of technology built around the year 1800, and with it I explored a world of language and ideas stretching back even further. I used to joke that my analog brain couldn't function without pencil and paper.</h2>`;
+    storyBlocks.middle.innerHTML = `<h2>These days, I design websites from scratch. I love building
+                                    my own front-end components and also connecting them to a back-end in Java... 
+    </h2>`;
+    storyBlocks.bottom.innerHTML = `<h2>...and although like all the cool kids these days, 
+    I'm exploring as much as I can in libraries like React, let's not forget that front-end skill is still based 
+    in plain, old, vanilla Javascript
+    </h2>`;
 
     for (let block in storyBlocks) {
         this.rightCurtain.appendChild(storyBlocks[block]);
-        waitAndThen(()=> { storyBlocks[block].style.transform = 'translateX(0vw)' }, 800);
+        waitAndThen(()=> { storyBlocks[block].style.transform = 'translateX(-10vw)' }, 800);
     }
 
 

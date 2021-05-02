@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   top: 10vh;
-  width: 30vw;
+  width: 35vw;
   height: 90vh;
   transform: translateX(-52vw);
   opacity: 0.2;
@@ -31,25 +31,31 @@
   position: absolute;
   top: 10vh;
   right: 0;
-  width: 70vw;
+  width: 65vw;
   height: 90vh;
   transform: translateX(70vw);
-  background-color: green;
   transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
-.storyBlock{
+.storyBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: translateX(70vw);
+  width: 100%;
+  height: 33%;
+  font-size: .9rem;
+  line-height: 2.5em;
 }
 
-.topThirdStory{
-  transition: .5s cubic-bezier(0.4, 0, 0.4, 1);
+.topThirdStory {
+  transition: 0.5s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
-.middleThirdStory{
-  transition: .8s cubic-bezier(0.4, 0, 0.4, 1);
+.middleThirdStory {
+  transition: 0.9s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
-.bottomThirdStory{
-    transition: 1.1s cubic-bezier(0.4, 0, 0.4, 1);
+.bottomThirdStory {
+  transition: 1.3s cubic-bezier(0.4, 0, 0.4, 1);
 }
