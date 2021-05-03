@@ -16,10 +16,12 @@ export const oldBike = (leftSpot, bigRotator, smallRotator) => {
     bigRotator += 3;
     smallRotator += 12;
 
+    if (leftSpot < window.innerWidth + 200) {
 
-    requestAnimationFrame(() => {
-      oldBike(leftSpot, bigRotator, smallRotator);
-    });
+        requestAnimationFrame(() => {
+            oldBike(leftSpot, bigRotator, smallRotator);
+        });
+    }
   }
 
   requestAnimationFrame(placeTheWheel);

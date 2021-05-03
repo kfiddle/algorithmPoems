@@ -2,7 +2,7 @@ html {
     /*font-family: 'calibre-Bold', sans-serif;*/
     font-family: 'Calibre-Bold', "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     letter-spacing: 0.3em;
-    font-weight: 800;
+    
 
 }
 
@@ -89,6 +89,6 @@ header {
 #PennyFrame {
   position: absolute;
   left: -1rem;
-  bottom: 9vh;
+  bottom: 11vh;
   margin-bottom: 1rem;
 }

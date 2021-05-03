@@ -6,7 +6,7 @@
     align-items: center;
     margin-top: 7vh;
     margin-left: 18vw;
-    width: 65vw;
+    width: 60vw;
     height: 80vh;
     /* transform: translateY(100vh); */
     background: rgb(122, 117, 117);
@@ -22,7 +22,8 @@
 .first {
     top: 0;
     left: 0;
-    background: green;
+    background-image: url('/assets/skyPondShot.jpg');
+    background-size: cover;
     transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
 
     
