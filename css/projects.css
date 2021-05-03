@@ -4,9 +4,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10vh;
-    width: 100vw;
-    height: 100vh;
+    margin-top: 7vh;
+    margin-left: 18vw;
+    width: 65vw;
+    height: 80vh;
     /* transform: translateY(100vh); */
     background: rgb(122, 117, 117);
     transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
@@ -19,23 +20,32 @@
 }
 
 .first {
-    top: 10vh;
-    left: 0;
-    background: green;
-}
-.second {
-    top: 10vh;
-    left: 50%;
-    background: blue;
-}
-.third {
     top: 0;
     left: 0;
-    background: red;
+    background: green;
+    transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
+
+    
+}
+.second {
+    top: 0;
+    left: 50%;
+    background: blue;
+    transition: 1.75s cubic-bezier(0.4, 0, 0.4, 1);
+
+}
+.third {
+    top: 50%;
+    left: 0;
+    background: gray;
+    transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
+
 }
 .fourth {
-    top: 60%;
+    top: 50%;
     left: 50%;
-    background: gold;
+    background: gainsboro;
+    transition: 1.75s cubic-bezier(0.4, 0, 0.4, 1);
+
 }
 

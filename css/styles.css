@@ -2,6 +2,7 @@ html {
     /*font-family: 'calibre-Bold', sans-serif;*/
     font-family: 'Calibre-Bold', "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
     letter-spacing: 0.3em;
+    font-weight: 800;
 
 }
 
@@ -70,3 +71,24 @@ header {
   transition: cubic-bezier(0.3, 0, 0.5, 1) 0.25s;
 }
 
+
+#Bigwheel {
+  position: absolute;
+  margin-left: 5rem;
+  bottom: 5vh;
+  transform: rotate(1deg);
+}
+
+#Smallwheel {
+  position: absolute;
+  bottom: 5vh;
+  margin-bottom: 1rem;
+
+}
+
+#PennyFrame {
+  position: absolute;
+  left: -1rem;
+  bottom: 9vh;
+  margin-bottom: 1rem;
+}
