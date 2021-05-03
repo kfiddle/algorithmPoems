@@ -24,7 +24,7 @@
     left: 0;
     background-image: url('/assets/skyPondShot.jpg');
     background-size: cover;
-    transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
+    transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
 
     
 }
@@ -32,21 +32,21 @@
     top: 0;
     left: 50%;
     background: blue;
-    transition: 1.75s cubic-bezier(0.4, 0, 0.4, 1);
+    transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
 
 }
 .third {
     top: 50%;
     left: 0;
     background: gray;
-    transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
+    transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
 
 }
 .fourth {
     top: 50%;
     left: 50%;
     background: gainsboro;
-    transition: 1.75s cubic-bezier(0.4, 0, 0.4, 1);
+    transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
 
 }
 
