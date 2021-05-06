@@ -3,17 +3,25 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10vh;
+  margin-top: 5vh;
   width: 100vw;
   height: 100vh;
   transform: translateY(100vh);
   background: white;
-  background: linear-gradient(  #476097, transparent, white, white, white, white, transparent);
+  background: linear-gradient(
+    #476097,
+    transparent,
+    white,
+    white,
+    white,
+    white,
+    transparent
+  );
   transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
 #contactBoxHeader {
-  margin: 4rem 0;
+  margin: 1rem 0;
 }
 
 #contactBoxHeader h2 {
@@ -48,11 +56,20 @@ input {
 }
 
 .submitButton {
-  position: relative;
-  bottom: -38vh;
+  margin-top: 1rem;
   width: 10rem;
-  height: 2rem;
-  background-color: darkblue;
+  height: 3rem;
+  background-color: slategray;
+}
+
+.submitButton h2 {
+  color: darkblue;
+  letter-spacing: .25em;
+  margin-top: .5em;
+}
+
+.submitButton h2:hover {
+  color: chartreuse;
 }
 
 .myContactInfo {

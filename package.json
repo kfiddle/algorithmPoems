@@ -1,0 +1,23 @@
+{
+  "name": "algorithmPoems",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfiddle/algorithmPoems.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kfiddle/algorithmPoems/issues"
+  },
+  "homepage": "https://github.com/kfiddle/algorithmPoems#readme",
+  "dependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
+}
