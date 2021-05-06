@@ -1,21 +1,24 @@
 import { BetterElement, waitAndThen } from "./betterElement.js";
-let app = document.getElementById('app');
+let app = document.getElementById("app");
 
 export const ContactBox = {
   contactBox: BetterElement("div", "contactBox"),
   isOpen: false,
 
-  submitContactInfo: function() {
+  submitContactInfo: function () {
     let contactInfo = {
-      fullName: document.querySelector('.nameInput').value,
-      email: document.querySelector('.emailInput').value,
-      phoneNumber: document.querySelector('.phoneInput').value,
-      message: document.querySelector('.messageInput').value,
-    }
+      fullName: document.querySelector(".nameInput").value,
+      phoneNumber: document.querySelector(".phoneInput").value,
+      emailAddress: document.querySelector(".emailInput").value,
+      message: document.querySelector(".messageInput").value,
+    };
 
 
-    console.log(contactInfo);
-
+    fetch("https://agile-basin-20718.herokuapp.com/send-message", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(contactInfo),
+    });
   },
 
   open: function () {
@@ -29,20 +32,19 @@ export const ContactBox = {
     myContactInfoSentence.innerText = "Or simply write me at...";
     const myEmail = BetterElement("h1", "myEmail");
     myEmail.innerText = "kenjsoftware@gmail.com";
-    const messageInput = BetterElement('textArea', 'messageInput');
-    messageInput.setAttribute('cols', '60');
-    messageInput.setAttribute('rows', '10')
-    
+    const messageInput = BetterElement("textArea", "messageInput");
+    messageInput.setAttribute("cols", "60");
+    messageInput.setAttribute("rows", "10");
 
     const inputs = {
-      nameInput: BetterElement("input", 'nameInput'),
-      emailInput: BetterElement("input", 'emailInput'),
-      phoneInput: BetterElement("input", 'phoneInput'),
+      nameInput: BetterElement("input", "nameInput"),
+      emailInput: BetterElement("input", "emailInput"),
+      phoneInput: BetterElement("input", "phoneInput"),
     };
 
     const submitButton = BetterElement("button", "submitButton");
     submitButton.innerHTML = `<h2>Submit</h2>`;
-    submitButton.addEventListener('click', this.submitContactInfo);
+    submitButton.addEventListener("click", this.submitContactInfo);
 
     contactBoxHeader.id = "contactBoxHeader";
     inputs.nameInput.id = "nameInput";
@@ -58,15 +60,12 @@ export const ContactBox = {
     }
 
     myContactInfoBox.appendChild(myContactInfoSentence);
-    
+
     this.contactBox.appendChild(myContactInfoBox).appendChild(myEmail);
     this.contactBox.appendChild(contactBoxHeader).appendChild(header);
-    app
-    .appendChild(this.contactBox)
-    .appendChild(inputsBox);
+    app.appendChild(this.contactBox).appendChild(inputsBox);
     this.contactBox.appendChild(messageInput);
     this.contactBox.appendChild(submitButton);
-
 
     waitAndThen(() => {
       this.contactBox.style.transform = "translateY(-110vh)";
