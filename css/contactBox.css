@@ -36,8 +36,8 @@
 }
 
 input {
-  background-color: #d1d1ab;
-  border: 0.2rem solid #3d441e;
+  background-color: rgb(166, 170, 175);
+  border: 0.2rem solid darkslateblue;
   font-family: "Quicksand";
   width: 20vw;
   font-size: 1.5rem;
@@ -53,6 +53,11 @@ input {
 }
 #phoneInput {
   transform: translateX(100vw);
+}
+
+textarea {
+  background-color: rgb(166, 170, 175);
+
 }
 
 .submitButton {
