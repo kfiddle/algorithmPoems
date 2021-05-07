@@ -1,0 +1,51 @@
+.sideBar {
+    position: relative;
+    margin-top: 10vh;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    background: linear-gradient(to Right, white, #565655);
+    width: 22vw;
+    height: 100vh;
+    transform: translateX(-25vw);
+    transition: .75s cubic-bezier(0.4, 0, 0.4, 1);
+  }
+  
+  .sideBar.closed {
+    background: linear-gradient(to Right, white, #5a3939);
+    transition: 1s;
+  }
+  
+  .sideBarItem {
+    margin-left: 5vw;
+    margin-right: 0;
+    color: black;
+    font-weight: 900;
+    font-size: 1.8rem;
+  }
+  
+  .sideBarItem:hover {
+      color:gold;
+  
+  }
+  
+  .sideBarItem.bigAndGlowing {
+    color: gold;
+    font-size: 2rem;
+    transition: 0.2s;
+  }
+  
+  .hiddenSideDiv {
+      position: absolute;
+      z-index: -1;
+      transform: translateX(-20vw);
+      top: 10vh;
+      background: white;
+      width: 20vw;
+      height: 100vh;
+      transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
+  }
+  
+  
+
+/*# sourceMappingURL=/sidebar.226ed710.css.map */

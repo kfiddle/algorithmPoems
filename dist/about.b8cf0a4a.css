@@ -1,0 +1,71 @@
+.headShotCurtain {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 10vh;
+  width: 35vw;
+  height: 90vh;
+  transform: translateX(-52vw);
+  opacity: 0.2;
+  background: #708090;
+  background: linear-gradient(
+    to Right,
+    white,
+    white,
+    white,
+    white,
+    #708090,
+    hsl(19, 89%, 30%)
+  );
+  transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.actualHeadShot {
+  width: 20vw;
+  filter: brightness(300%);
+  transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.story {
+  position: absolute;
+  top: 10vh;
+  right: 0;
+  width: 65vw;
+  height: 90vh;
+  transform: translateX(70vw);
+  transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.storyBlock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(70vw);
+  width: 100%;
+  height: 33%;
+  font-size: 1.2rem;
+  font-weight: 900;
+  line-height: 2.5em;
+  letter-spacing: .15em;
+}
+
+.topThirdStory {
+  transition: 0.5s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.middleThirdStory {
+  transition: 0.9s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.bottomThirdStory {
+  transition: 1.3s cubic-bezier(0.4, 0, 0.4, 1);
+  margin-bottom: 3rem;
+}
+
+.bottomThirdStory h2{
+    margin-bottom: 10rem;
+}
+
+
+/*# sourceMappingURL=/about.b8cf0a4a.css.map */
