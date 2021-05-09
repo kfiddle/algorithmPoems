@@ -56,6 +56,7 @@ class ProjectBox {
     
     let xOut = BetterElement('h1', 'xOut');
     xOut.innerText = 'X';
+    xOut.addEventListener('click', closeModal);
     modalBox.appendChild(xOut);
     
     
@@ -102,21 +103,25 @@ export const ProjectComponents = {
     this.rollTheBoxes("out");
 
     if (document.querySelector(".projectModal")) {
-      this.closeModal();
+      closeModal();
     }
 
     waitAndThen(() => {
+      this.projectsContainer.eraseAllKids();
       app.removeChild(this.projectsContainer);
     }, 400);
 
     this.isOpen = false;
-  },
+  }
 
-  closeModal: function () {
-    let modal = this.projectsContainer.querySelector(".projectModal");
-    modal.rollout("translateY(0vh)");
-    waitAndThen(() => {
-      this.projectsContainer.removeChild(modal);
-    }, 200);
-  },
 };
+
+function closeModal() {
+  let modal = document.querySelector(".projectModal");
+  modal.rollout("translateY(0vh)");
+  waitAndThen(()=> { modal.parentElement.removeChild(modal) }, 500);
+  
+  
+
+}
+
