@@ -1,5 +1,5 @@
 
-export const BetterElement =(tag, ...classList) => {
+export const BetterElement = (tag, ...classList) => {
     let elementToReturn = document.createElement(tag);
     
     if (classList) {

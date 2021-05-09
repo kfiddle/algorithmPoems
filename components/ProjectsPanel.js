@@ -1,4 +1,5 @@
 import { BetterElement, waitAndThen } from "./betterElement.js";
+import { ProjectModal } from './ProjectModal.js';
 
 let app = document.getElementById("app");
 
@@ -13,7 +14,9 @@ class ProjectBox {
       this.highlightProject("hoverOut");
     });
     this.box.addEventListener("click", () => {
-      this.openProjectModal();
+      // this.openProjectModal();
+      ProjectModal.open();
+
     });
   }
 
@@ -59,7 +62,6 @@ class ProjectBox {
     xOut.addEventListener('click', closeModal);
     modalBox.appendChild(xOut);
     
-    
     projectsDiv.appendChild(modalBox);
     waitAndThen(() => {
       modalBox.rollout("translateY(-100vh)");
@@ -102,9 +104,10 @@ export const ProjectComponents = {
   close: function () {
     this.rollTheBoxes("out");
 
-    if (document.querySelector(".projectModal")) {
-      closeModal();
-    }
+    // if (document.querySelector(".projectModal")) {
+    //   closeModal();
+    // }
+    ProjectModal.close();
 
     waitAndThen(() => {
       this.projectsContainer.eraseAllKids();
@@ -120,8 +123,5 @@ function closeModal() {
   let modal = document.querySelector(".projectModal");
   modal.rollout("translateY(0vh)");
   waitAndThen(()=> { modal.parentElement.removeChild(modal) }, 500);
-  
-  
-
 }
 
