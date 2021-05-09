@@ -1,11 +1,12 @@
 import { BetterElement, waitAndThen } from "./betterElement.js";
 
+let app = document.getElementById('app');
+
 export const ProjectModal = {
   isOpen: false,
   modalBox: BetterElement("div", "projectModal"),
 
   open: function () {
-    let projectsDiv = document.querySelector(".projectsPanel");
     let xOut = BetterElement("h1", "xOut");
     xOut.innerText = "X";
     xOut.addEventListener("click", () => {
@@ -13,17 +14,20 @@ export const ProjectModal = {
     });
     this.modalBox.appendChild(xOut);
 
-    projectsDiv.appendChild(this.modalBox);
+    app.appendChild(this.modalBox);
     waitAndThen(() => {
-      this.modalBox.rollout("translateY(-100vh)");
-    }, 200);
+      this.modalBox.rollout("translateX(0vw)");
+    }, 100);
+
+    waitAndThen(() => { this.modalBox.classList.add('opened') }, 800);
 
     this.isOpen = true;
   },
 
   close: function () {
     if (this.isOpen) {
-      this.modalBox.rollout("translateY(0vh)");
+      this.modalBox.rollout("translateX(70vw)");
+      this.modalBox.classList.remove('opened');
       waitAndThen(() => {
         this.modalBox.eraseAllKids();
         this.modalBox.parentElement.removeChild(this.modalBox);

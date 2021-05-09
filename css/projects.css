@@ -1,74 +1,85 @@
-
 .projectsPanel {
-    position: fixed;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 7vh;
-    margin-left: 10vw;
-    width: 80vw;
-    height: 80vh;
-    /* transform: translateY(100vh); */
-    background: transparent;
-    transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7vh;
+  margin-left: 10vw;
+  width: 80vw;
+  height: 80vh;
+  /* transform: translateY(100vh); */
+  background: transparent;
+  transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
 .projectBox {
-    position: absolute;
-    width: 50%;
-    height: 50%;
+  position: absolute;
+  width: 50%;
+  height: 50%;
 }
 
 .first {
-    top: 0;
-    left: 0;
-    background-image: url('/assets/skyPondShot.jpg');
-    background-size: cover;
-    transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
+  top: 0;
+  left: 0;
+  background-image: url("/assets/skyPondShot.jpg");
+  background-size: cover;
+  transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
+}
 
-    
+.first .innerProjectHeader {
+  top: 15%;
+  left: 10%;
 }
 .second {
-    top: 0;
-    left: 50%;
-    background-image: url('/assets/colonialShot.jpg');
-    background-size: cover;
-    transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
-
+  top: 0;
+  left: 50%;
+  background-image: url("/assets/colonialCurrencyShot.jpg");
+  background-size: cover;
+  transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
 }
 .third {
-    top: 50%;
-    left: 0;
-    background: gray;
-    transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
-
+  top: 50%;
+  left: 0;
+  background: gray;
+  transition: 1.2s cubic-bezier(0.4, 0, 0.4, 1);
 }
 .fourth {
-    top: 50%;
-    left: 50%;
-    background: gainsboro;
-    transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
+  top: 50%;
+  left: 50%;
+  background: gainsboro;
+  transition: 1.5s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
 .innerProjectHeader {
-    color: gold;
-    font-weight: 900;
-    font-size: 2.1rem;
-    position: absolute;
-    left: 50%;
+  color: gold;
+  font-weight: 900;
+  font-size: 2.1rem;
+  position: absolute;
+  top: 60%;
+  left: 5%;
 }
 
 .projectModal {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    width: 100%;
-    height: 100%;
-    background: rebeccapurple;
-    z-index: 2;
-    transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  background: linear-gradient(to Left, white, #5a3939);
+  width: 70vw;
+  height: 100vh;
+  transform: translateX(70vw);
+
+  top: 10vh;
+  right: 0;
+  transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.projectModal.opened {
+  background: linear-gradient(to Left, white, #565655);
+  transition: 1.75s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
 .xOut {
-    padding: 1rem;
-    cursor: pointer;
+  padding: 1rem;
+  cursor: pointer;
 }

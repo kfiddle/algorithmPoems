@@ -14,9 +14,7 @@ class ProjectBox {
       this.highlightProject("hoverOut");
     });
     this.box.addEventListener("click", () => {
-      // this.openProjectModal();
       ProjectModal.open();
-
     });
   }
 
@@ -49,23 +47,6 @@ class ProjectBox {
       this.box.removeChild(this.box.lastChild);
       this.box.style.filter = "";
     }
-  }
-
-  openProjectModal() {
-    // console.log(this.box.classList);
-
-    let modalBox = BetterElement("div", "projectModal");
-    let projectsDiv = document.querySelector(".projectsPanel");
-    
-    let xOut = BetterElement('h1', 'xOut');
-    xOut.innerText = 'X';
-    xOut.addEventListener('click', closeModal);
-    modalBox.appendChild(xOut);
-    
-    projectsDiv.appendChild(modalBox);
-    waitAndThen(() => {
-      modalBox.rollout("translateY(-100vh)");
-    }, 200);
   }
 }
 
