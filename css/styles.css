@@ -18,6 +18,10 @@ body {
   background: #cbd1d2;
 }
 
+#app {
+  overscroll-behavior: contain;
+}
+
 
 header {
   display: flex;

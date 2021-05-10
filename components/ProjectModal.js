@@ -5,6 +5,11 @@ let app = document.getElementById('app');
 export const ProjectModal = {
   isOpen: false,
   modalBox: BetterElement("div", "projectModal"),
+  innerModalDiv: BetterElement('div', 'innerModalDiv'),
+  descriptionDiv: BetterElement('div', 'descriptionDiv'),
+  slideDiv: BetterElement('div', 'slideDiv'),
+  slideButtonLeft: BetterElement('button', 'carouselButtons', 'arrow-left'),
+  slideButtonRight: BetterElement('button', 'carouselButtons', 'arrow-right'),
 
   open: function () {
     let xOut = BetterElement("h1", "xOut");
@@ -13,6 +18,13 @@ export const ProjectModal = {
       this.close();
     });
     this.modalBox.appendChild(xOut);
+    this.innerModalDiv.appendChild(this.descriptionDiv);
+
+    this.slideDiv.appendChild(this.slideButtonLeft);
+    this.slideDiv.appendChild(this.slideButtonRight);
+
+    this.innerModalDiv.appendChild(this.slideDiv);
+    this.modalBox.appendChild(this.innerModalDiv);
 
     app.appendChild(this.modalBox);
     waitAndThen(() => {

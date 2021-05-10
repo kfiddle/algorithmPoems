@@ -61,14 +61,12 @@
 
 .projectModal {
   position: absolute;
-  display: flex;
   flex-direction: column;
   background: white;
   background: linear-gradient(to Left, white, #5a3939);
-  width: 70vw;
+  width: 80vw;
   height: 100vh;
-  transform: translateX(70vw);
-
+  transform: translateX(80vw);
   top: 10vh;
   right: 0;
   transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
@@ -82,4 +80,46 @@
 .xOut {
   padding: 1rem;
   cursor: pointer;
+}
+
+.innerModalDiv {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  background: green;
+  margin-left: 5%;
+  height: 75%;
+  width: 90%;
+}
+
+.descriptionDiv {
+  background-color: blue;
+}
+
+.slideDiv {
+  background: pink;
+  position: relative;
+}
+
+.carouselButtons {
+  position: relative;
+  top: 50%;
+  cursor: pointer;
+}
+
+.arrow-left {
+  top: 20%;
+  left: -93%;
+  background-color: white;
+  border-bottom: 3rem solid transparent;
+  border-top: 3rem solid transparent;
+  border-right: 1.5rem solid #ccc;
+  display: none;
+}
+
+.arrow-right {
+  right: -93%;
+  background-color: white;
+  border-bottom: 3rem solid transparent;
+  border-left: 1.5rem solid #ccc;
+  border-top: 3rem solid transparent;
 }
