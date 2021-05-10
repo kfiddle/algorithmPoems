@@ -95,6 +95,13 @@
   background-color: blue;
 }
 
+.descriptionText {
+  font-size: 1.5rem;
+  line-height: 2em;
+  letter-spacing: 0.15em;
+  margin: 1rem;
+}
+
 .slideDiv {
   background: pink;
   position: relative;
