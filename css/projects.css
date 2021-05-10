@@ -101,23 +101,22 @@
 }
 
 .carouselButtons {
-  position: relative;
+  position: absolute;
   top: 50%;
   cursor: pointer;
 }
 
 .arrow-left {
-  top: 20%;
-  left: -93%;
+  left: 5%;
   background-color: white;
   border-bottom: 3rem solid transparent;
   border-top: 3rem solid transparent;
   border-right: 1.5rem solid #ccc;
-  display: none;
+  /* display: none; */
 }
 
 .arrow-right {
-  right: -93%;
+  right: 5%;
   background-color: white;
   border-bottom: 3rem solid transparent;
   border-left: 1.5rem solid #ccc;
