@@ -14,7 +14,7 @@ class ProjectBox {
       this.highlightProject("hoverOut");
     });
     this.box.addEventListener("click", () => {
-      ProjectModal.open();
+      ProjectModal.open(classList[1]);
     });
   }
 
@@ -53,9 +53,9 @@ class ProjectBox {
 export const ProjectComponents = {
   projectsContainer: BetterElement("div", "projectsPanel"),
   projectBoxes: {
-    1: new ProjectBox("div", "projectBox", "first"),
+    1: new ProjectBox("div", "projectBox", "first"), 
     2: new ProjectBox("div", "projectBox", "second"),
-    3: new ProjectBox("div", "projectBox", "third"),
+    3: new ProjectBox("div", "projectBox", "third"), 
     4: new ProjectBox("div", "projectBox", "fourth"),
   },
 
@@ -84,10 +84,6 @@ export const ProjectComponents = {
 
   close: function () {
     this.rollTheBoxes("out");
-
-    // if (document.querySelector(".projectModal")) {
-    //   closeModal();
-    // }
     ProjectModal.close();
 
     waitAndThen(() => {

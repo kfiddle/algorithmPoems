@@ -2,7 +2,11 @@ import { BetterElement, waitAndThen } from "./betterElement.js";
 
 let app = document.getElementById("app");
 
+let boxes = ["first", "second", "third", "fourth"];
+
+
 export const ProjectModal = {
+
   isOpen: false,
   modalBox: BetterElement("div", "projectModal"),
   innerModalDiv: BetterElement("div", "innerModalDiv"),
@@ -16,7 +20,7 @@ export const ProjectModal = {
   slideButtonLeft: BetterElement("button", "carouselButtons", "arrow-left"),
   slideButtonRight: BetterElement("button", "carouselButtons", "arrow-right"),
 
-  open: function () {
+  open: function (projectIndex) {
     let xOut = BetterElement("h1", "xOut");
     xOut.innerText = "X";
     xOut.addEventListener("click", () => {
@@ -26,7 +30,7 @@ export const ProjectModal = {
 
     this.descriptionText.innerText =
       "2] Sed ut perspiciatis, i dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia anim erspiciatis, i dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provi ";
-    this.descriptionText.innerText = "harry and sally";
+    this.descriptionText.innerText = projectIndex;
 
     this.descriptionDiv.appendChild(this.descriptionText);
     this.innerModalDiv.appendChild(this.descriptionDiv);
