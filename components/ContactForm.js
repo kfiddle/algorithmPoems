@@ -11,14 +11,17 @@ export const ContactBox = {
       phoneNumber: document.querySelector(".phoneInput").value,
       emailAddress: document.querySelector(".emailInput").value,
       message: document.querySelector(".messageInput").value,
-    };
 
+
+    };
 
     fetch("https://agile-basin-20718.herokuapp.com/send-message", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(contactInfo),
     });
+
+
   },
 
   open: function () {

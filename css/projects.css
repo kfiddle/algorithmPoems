@@ -66,7 +66,7 @@
   background: linear-gradient(to Left, white, #5a3939);
   width: 80vw;
   height: 100vh;
-  transform: translateX(80vw);
+  transform: translateX(100vw);
   top: 10vh;
   right: 0;
   transition: 0.75s cubic-bezier(0.4, 0, 0.4, 1);
@@ -85,14 +85,13 @@
 .innerModalDiv {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  background: green;
   margin-left: 5%;
   height: 75%;
   width: 90%;
 }
 
 .descriptionDiv {
-  background-color: blue;
+  background-color: transparent;
 }
 
 .descriptionText {
@@ -103,8 +102,16 @@
 }
 
 .slideDiv {
-  background: pink;
+
   position: relative;
+}
+
+.slideImageDiv{
+  width: 90%;
+  height: 90%;
+  background-image: url('/assets/skyPondShot.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .carouselButtons {
@@ -115,17 +122,16 @@
 
 .arrow-left {
   left: 5%;
-  background-color: white;
+  background-color: transparent;
   border-bottom: 3rem solid transparent;
   border-top: 3rem solid transparent;
-  border-right: 1.5rem solid #ccc;
-  /* display: none; */
+  border-right: 1.5rem solid white;
 }
 
 .arrow-right {
   right: 5%;
-  background-color: white;
+  background-color: transparent;
   border-bottom: 3rem solid transparent;
-  border-left: 1.5rem solid #ccc;
+  border-left: 1.5rem solid white;
   border-top: 3rem solid transparent;
 }
