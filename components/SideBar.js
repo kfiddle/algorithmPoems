@@ -12,7 +12,7 @@ const menuItems = [
   // "beautiful recursion",
   // "another item of note",
   // "smoke and mirrors",
-  "projects",
+  "current projects",
   "about",
   "contact",
 ];
