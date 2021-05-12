@@ -109,7 +109,6 @@
 .slideImageDiv{
   width: 90%;
   height: 90%;
-  background-image: url('/assets/skyPondShot.jpg');
   background-size: contain;
   background-repeat: no-repeat;
 }

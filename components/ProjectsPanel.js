@@ -4,8 +4,8 @@ import { ProjectModal } from './ProjectModal.js';
 let app = document.getElementById("app");
 
 class ProjectBox {
-  constructor(tag, ...classList) {
-    this.box = BetterElement(tag, ...classList);
+    constructor(element, projectIndex) {
+    this.box = element;
 
     this.box.addEventListener("mouseover", () => {
       this.highlightProject("hover");
@@ -14,7 +14,7 @@ class ProjectBox {
       this.highlightProject("hoverOut");
     });
     this.box.addEventListener("click", () => {
-      ProjectModal.open(classList[1]);
+      ProjectModal.open(projectIndex);
     });
   }
 
@@ -53,10 +53,10 @@ class ProjectBox {
 export const ProjectComponents = {
   projectsContainer: BetterElement("div", "projectsPanel"),
   projectBoxes: {
-    1: new ProjectBox("div", "projectBox", "first"), 
-    2: new ProjectBox("div", "projectBox", "second"),
-    3: new ProjectBox("div", "projectBox", "third"), 
-    4: new ProjectBox("div", "projectBox", "fourth"),
+    1: new ProjectBox(BetterElement('div', 'projectBox', 'first'), 0),
+    2: new ProjectBox(BetterElement('div', 'projectBox', 'second'), 1),
+    3: new ProjectBox(BetterElement('div', 'projectBox', 'third'), 2),
+    4: new ProjectBox(BetterElement('div', 'projectBox', 'fourth'), 3),
   },
 
   rollTheBoxes: function (direction) {

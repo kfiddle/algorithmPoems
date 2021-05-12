@@ -2,8 +2,13 @@ import { BetterElement, waitAndThen } from "./betterElement.js";
 
 let app = document.getElementById("app");
 
-let boxes = ["first", "second", "third", "fourth"];
-
+let slides = {
+    0: ['/assets/slides/skyPondSlide1.jpg'],
+    1: ['/assets/slides/colonialSlideShot.jpg'],
+    2: ['/assets/slides/apexSlide1.jpg'],
+    3: []
+};
+            
 
 export const ProjectModal = {
 
@@ -28,8 +33,6 @@ export const ProjectModal = {
     });
     this.modalBox.appendChild(xOut);
 
-    this.descriptionText.innerText =
-      "2] Sed ut perspiciatis, i dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provident, similique sunt in culpa, qui officia deserunt mollitia anim erspiciatis, i dolorem eum fugiat, quo voluptas nulla pariatur? [33] At vero eos et accusamus et iusto odio dignissimos ducimus, qui blanditiis praesentium voluptatum deleniti atque corrupti, quos dolores et quas molestias excepturi sint, obcaecati cupiditate non provi ";
     this.descriptionText.innerText = projectIndex;
 
     this.descriptionDiv.appendChild(this.descriptionText);
@@ -37,6 +40,8 @@ export const ProjectModal = {
 
     this.slideDiv.appendChild(this.slideButtonLeft);
     this.slideDiv.appendChild(this.slideButtonRight);
+
+    this.slideImageDiv.style.backgroundImage = `url(${slides[projectIndex][0]})`;
     this.slideDiv.appendChild(this.slideImageDiv);
 
     this.innerModalDiv.appendChild(this.slideDiv);
