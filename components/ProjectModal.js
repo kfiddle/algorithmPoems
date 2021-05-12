@@ -35,8 +35,7 @@ export const ProjectModal = {
   slideDiv: BetterElement("div", "slideDiv"),
   slideImageDiv: BetterElement('div', 'slideImageDiv'),
 
-  slideButtonLeft: BetterElement("button", "carouselButtons", "arrow-left"),
-  slideButtonRight: BetterElement("button", "carouselButtons", "arrow-right"),
+  slideButtons: [BetterElement("button", "carouselButtons", "arrow-left"), BetterElement("button", "carouselButtons", "arrow-right")],
 
   open: function (projectIndex) {
     let xOut = BetterElement("h1", "xOut");
@@ -54,8 +53,11 @@ export const ProjectModal = {
     this.slideImageDiv.style.backgroundImage = `url(${projectInfo[projectIndex].carousel[0]})`;
     this.slideDiv.appendChild(this.slideImageDiv);
     
-    this.slideDiv.appendChild(this.slideButtonLeft);
-    this.slideDiv.appendChild(this.slideButtonRight);
+    this.slideButtons.forEach((button, index) => {
+      button.addEventListener('click', ()=> { moveSlides(index) })
+      this.slideDiv.appendChild(button);
+    });
+  
     this.innerModalDiv.appendChild(this.slideDiv);
     this.modalBox.appendChild(this.innerModalDiv);
 
@@ -83,3 +85,13 @@ export const ProjectModal = {
     }
   },
 };
+
+
+function moveSlides(leftOrRightButton) {
+  let leftButton = document.getElementsByClassName('arrow-left');
+  let rightButton = document.getElementsByClassName('arrow-right');
+
+  console.log(leftOrRightButton);
+
+
+}
