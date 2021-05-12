@@ -2,12 +2,25 @@ import { BetterElement, waitAndThen } from "./betterElement.js";
 
 let app = document.getElementById("app");
 
-let slides = {
-    0: ['/assets/slides/skyPondSlide1.jpg'],
-    1: ['/assets/slides/colonialSlideShot.jpg'],
-    2: ['/assets/slides/apexSlide1.jpg'],
-    3: []
-};
+
+let projectInfo = [
+  { description: 'A collaboration with my friend Karin Samoviski. All animations and components are vanilla Javascript, and the back-end modeling and database are built in Java and Spring Boot. ',
+    carousel:['/assets/slides/skyPondSlide1.jpg']
+  },
+  {
+    description:'An app designed for genealogists. Perhaps your ancestor inherited land in 1750? Or was paid by the colonial army per mile of marching? This app will help you do a few necessary calculations with an unfamiliar currency.',
+    carousel:['/assets/slides/colonialSlideShot.jpg']
+  },
+  {
+    description:'A business simulation. In this case, a generic employee survey form populates an independent spreadsheet, and a relational database of companies and their employees is managed through the administrative pages. Java Spring Boot and Javascript.',
+    carousel:['/assets/slides/apexSlide1.jpg']
+
+  },
+  {
+    description:'a super DUPER cool thing',
+    carousel:['/assets/slides/apexSlide1.jpg']
+  }
+]
             
 
 export const ProjectModal = {
@@ -33,17 +46,16 @@ export const ProjectModal = {
     });
     this.modalBox.appendChild(xOut);
 
-    this.descriptionText.innerText = projectIndex;
+    this.descriptionText.innerText = projectInfo[projectIndex].description;
 
     this.descriptionDiv.appendChild(this.descriptionText);
     this.innerModalDiv.appendChild(this.descriptionDiv);
 
+    this.slideImageDiv.style.backgroundImage = `url(${projectInfo[projectIndex].carousel[0]})`;
+    this.slideDiv.appendChild(this.slideImageDiv);
+    
     this.slideDiv.appendChild(this.slideButtonLeft);
     this.slideDiv.appendChild(this.slideButtonRight);
-
-    this.slideImageDiv.style.backgroundImage = `url(${slides[projectIndex][0]})`;
-    this.slideDiv.appendChild(this.slideImageDiv);
-
     this.innerModalDiv.appendChild(this.slideDiv);
     this.modalBox.appendChild(this.innerModalDiv);
 

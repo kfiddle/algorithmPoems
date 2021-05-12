@@ -107,6 +107,7 @@
 }
 
 .slideImageDiv{
+  margin: 0 auto;
   width: 90%;
   height: 90%;
   background-size: contain;
@@ -115,12 +116,12 @@
 
 .carouselButtons {
   position: absolute;
-  top: 50%;
+  top: 80%;
   cursor: pointer;
 }
 
 .arrow-left {
-  left: 5%;
+  left: 15%;
   background-color: transparent;
   border-bottom: 3rem solid transparent;
   border-top: 3rem solid transparent;
@@ -128,7 +129,7 @@
 }
 
 .arrow-right {
-  right: 5%;
+  right: 15%;
   background-color: transparent;
   border-bottom: 3rem solid transparent;
   border-left: 1.5rem solid white;
