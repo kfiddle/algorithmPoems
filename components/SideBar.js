@@ -78,7 +78,7 @@ SideBar.menuAppears = (menuItemIndex) => {
       requestAnimationFrame(() => {
         SideBar.menuAppears(menuItemIndex);
       });
-    }, 80);
+    }, 150);
   }
 
   requestAnimationFrame(menuItemPopOut);

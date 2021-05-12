@@ -5,11 +5,11 @@ let app = document.getElementById("app");
 
 let projectInfo = [
   { description: 'A collaboration with my friend Karin Samoviski. All animations and components are vanilla Javascript, and the back-end modeling and database are built in Java and Spring Boot. ',
-    carousel:['/assets/slides/skyPondSlide1.jpg']
+    carousel:['/assets/slides/skyPondSlide1.jpg', '/assets/slides/skyPondSlide2.jpg', '/assets/slides/skyPondPhoneFormatter.jpg' ]
   },
   {
     description:'An app designed for genealogists. Perhaps your ancestor inherited land in 1750? Or was paid by the colonial army per mile of marching? This app will help you do a few necessary calculations with an unfamiliar currency.',
-    carousel:['/assets/slides/colonialSlideShot.jpg']
+    carousel:['/assets/slides/colonialCurrencySlide1.jpg']
   },
   {
     description:'A business simulation. In this case, a generic employee survey form populates an independent spreadsheet, and a relational database of companies and their employees is managed through the administrative pages. Java Spring Boot and Javascript.',

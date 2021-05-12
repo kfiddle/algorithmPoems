@@ -63,7 +63,7 @@
   position: absolute;
   flex-direction: column;
   background: white;
-  background: linear-gradient(to Left, white, #5a3939);
+  background: linear-gradient(to Left, black, #5a3939);
   width: 80vw;
   height: 100vh;
   transform: translateX(100vw);
@@ -73,7 +73,7 @@
 }
 
 .projectModal.opened {
-  background: linear-gradient(to Left, white, #565655);
+  background: linear-gradient(to Left, black, black, black,#43415a);
   transition: 1.75s cubic-bezier(0.4, 0, 0.4, 1);
 }
 
@@ -95,6 +95,7 @@
 }
 
 .descriptionText {
+  color:white;
   font-size: 1.5rem;
   line-height: 2em;
   letter-spacing: 0.15em;
@@ -110,6 +111,7 @@
   margin: 0 auto;
   width: 90%;
   height: 90%;
+  /* border: solid black 7px; */
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -121,17 +123,19 @@
 }
 
 .arrow-left {
-  left: 15%;
+  left: 17%;
   background-color: transparent;
   border-bottom: 3rem solid transparent;
   border-top: 3rem solid transparent;
   border-right: 1.5rem solid white;
+  border-left: none;
 }
 
 .arrow-right {
-  right: 15%;
+  right: 13%;
   background-color: transparent;
   border-bottom: 3rem solid transparent;
-  border-left: 1.5rem solid white;
   border-top: 3rem solid transparent;
+  border-left: 1.5rem solid white;
+  border-right: none;
 }

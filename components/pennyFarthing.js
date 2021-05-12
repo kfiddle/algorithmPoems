@@ -1,10 +1,12 @@
-let bigwheel = document.getElementById("Bigwheel");
-let smallwheel = document.getElementById("Smallwheel");
-let pennyFrame = document.getElementById('PennyFrame');
 
 
-export const oldBike = (leftSpot, bigRotator, smallRotator) => {
-  function placeTheWheel(timestamp) {
+export const PennyFarthing = (leftSpot, bigRotator, smallRotator) => {
+  
+  let bigwheel = document.getElementById("Bigwheel");
+  let smallwheel = document.getElementById("Smallwheel");
+  let pennyFrame = document.getElementById('PennyFrame');
+
+  function placeTheWheel() {
     bigwheel.style.left = leftSpot + "px";
     bigwheel.style.transform = `rotate(${bigRotator}deg)`;
 
@@ -16,10 +18,9 @@ export const oldBike = (leftSpot, bigRotator, smallRotator) => {
     bigRotator += 3;
     smallRotator += 12;
 
-    if (leftSpot < window.innerWidth + 200) {
-
+    if (leftSpot < window.innerWidth + 100) {
         requestAnimationFrame(() => {
-            oldBike(leftSpot, bigRotator, smallRotator);
+            PennyFarthing(leftSpot, bigRotator, smallRotator);
         });
     }
   }

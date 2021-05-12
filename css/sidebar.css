@@ -8,7 +8,7 @@
     width: 22vw;
     height: 100vh;
     transform: translateX(-25vw);
-    transition: .75s cubic-bezier(0.4, 0, 0.4, 1);
+    transition: 1s cubic-bezier(0.4, 0, 0.4, 1);
   }
   
   .sideBar.closed {
@@ -19,7 +19,7 @@
   .sideBarItem {
     margin-left: 5vw;
     margin-right: 0;
-    color: black;
+    color: white;
     font-weight: 900;
     font-size: 1.8rem;
   }

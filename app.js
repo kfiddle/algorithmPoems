@@ -1,6 +1,6 @@
 import { makeHeaderAndInnerComponents } from "./components/Header.js";
 
-import { oldBike } from './components/pennyFarthing.js';
+import { PennyFarthing } from './components/pennyFarthing.js';
 
 const app = document.getElementById("app");
 
@@ -10,7 +10,7 @@ let [leftSpot, bigRotator, smallRotator] = [0, 0, 0];
 class App {
   static renderBasicPage() {
     makeHeaderAndInnerComponents();
-    oldBike(leftSpot, bigRotator, smallRotator);
+    PennyFarthing(leftSpot, bigRotator, smallRotator);
 
   }
 }
