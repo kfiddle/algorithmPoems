@@ -99,3 +99,10 @@ header {
   bottom: 11vh;
   margin-bottom: 1rem;
 }
+
+#pennyFarthingSnippet {
+  position: absolute; 
+  size:90%;
+  right: 10vw; 
+  z-index: -1;
+}

@@ -15,7 +15,7 @@ let projectInfo = [
   },
   {
     description:
-      "An app designed for genealogists. Perhaps your ancestor inherited land in 1750? Or was paid by the colonial army per mile of marching? This app will help you do a few necessary calculations with an unfamiliar currency.",
+      "An app designed for genealogists. Perhaps your ancestor inherited land in 1750? Or was paid by the Continental Army per mile of marching? This app will help you do a few necessary calculations with an unfamiliar currency.",
     carousel: [
       "/assets/slides/colonialCurrencySlide1.jpg",
       "/assets/slides/colonialSlide2.jpg",
