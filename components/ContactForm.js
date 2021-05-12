@@ -81,7 +81,7 @@ export const ContactBox = {
     }
 
     waitAndThen(() => {
-      myContactInfoBox.style.transform = "translateY(60vh)";
+      myContactInfoBox.style.transform = "translateY(70vh)";
     }, 1000);
 
     this.isOpen = true;
