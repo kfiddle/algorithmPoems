@@ -100,9 +100,16 @@ header {
   margin-bottom: 1rem;
 }
 
-#pennyFarthingSnippet {
+#pennyFarthingDiv {
   position: absolute; 
-  size:90%;
+  height: 80vh;
+  width: 40vw;
+  background-image: url("/assets/pennyFarthingSnippet.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
   right: 10vw; 
+  transform: translateY(100vh);
   z-index: -1;
+  transition: 3s cubic-bezier(0.4, 0, 0.4, 1);
+
 }
