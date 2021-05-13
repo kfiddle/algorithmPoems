@@ -14,7 +14,6 @@ class App {
     PennyFarthing(leftSpot, bigRotator, smallRotator);
     codeSnippetFloatUp();
 
-
   }
 }
 
