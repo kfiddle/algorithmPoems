@@ -117,7 +117,50 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"components/HtmlElement.js":[function(require,module,exports) {
+})({"components/betterElement.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.waitAndThen = exports.BetterElement = void 0;
+
+var BetterElement = function BetterElement(tag) {
+  var elementToReturn = document.createElement(tag);
+
+  for (var _len = arguments.length, classList = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    classList[_key - 1] = arguments[_key];
+  }
+
+  if (classList) {
+    classList.forEach(function (className) {
+      return elementToReturn.classList.add(className);
+    });
+  }
+
+  elementToReturn.rollout = function (translationParameter) {
+    elementToReturn.style.transform = translationParameter;
+  };
+
+  elementToReturn.eraseAllKids = function () {
+    while (elementToReturn.lastChild) {
+      elementToReturn.removeChild(elementToReturn.lastChild);
+    }
+  };
+
+  return elementToReturn;
+};
+
+exports.BetterElement = BetterElement;
+
+var waitAndThen = function waitAndThen(callback, time) {
+  setTimeout(function () {
+    callback();
+  }, time);
+};
+
+exports.waitAndThen = waitAndThen;
+},{}],"components/HtmlElement.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -171,49 +214,6 @@ var HtmlElement = /*#__PURE__*/function () {
 }();
 
 exports.HtmlElement = HtmlElement;
-},{}],"components/betterElement.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.waitAndThen = exports.BetterElement = void 0;
-
-var BetterElement = function BetterElement(tag) {
-  var elementToReturn = document.createElement(tag);
-
-  for (var _len = arguments.length, classList = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    classList[_key - 1] = arguments[_key];
-  }
-
-  if (classList) {
-    classList.forEach(function (className) {
-      return elementToReturn.classList.add(className);
-    });
-  }
-
-  elementToReturn.rollout = function (translationParameter) {
-    elementToReturn.style.transform = translationParameter;
-  };
-
-  elementToReturn.eraseAllKids = function () {
-    while (elementToReturn.lastChild) {
-      elementToReturn.removeChild(elementToReturn.lastChild);
-    }
-  };
-
-  return elementToReturn;
-};
-
-exports.BetterElement = BetterElement;
-
-var waitAndThen = function waitAndThen(callback, time) {
-  setTimeout(function () {
-    callback();
-  }, time);
-};
-
-exports.waitAndThen = waitAndThen;
 },{}],"components/hiddenSideDiv.js":[function(require,module,exports) {
 "use strict";
 
@@ -321,7 +321,7 @@ var ContactBox = {
     }
 
     (0, _betterElement.waitAndThen)(function () {
-      myContactInfoBox.style.transform = "translateY(60vh)";
+      myContactInfoBox.style.transform = "translateY(70vh)";
     }, 1000);
     this.isOpen = true;
   },
@@ -420,6 +420,120 @@ var aboutCurtains = {
   }
 };
 exports.aboutCurtains = aboutCurtains;
+},{"./betterElement.js":"components/betterElement.js"}],"components/ProjectModal.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.ProjectModal = void 0;
+
+var _betterElement = require("./betterElement.js");
+
+var app = document.getElementById("app");
+var carouselIndex = 0;
+var projectInfo = [{
+  description: "A collaboration with my friend Karin Samoviski. All animations and components are vanilla Javascript, and the back-end modeling and database are built in Java and Spring Boot. ",
+  carousel: ["/assets/slides/skyPondSlide1.jpg", "/assets/slides/skyPondSlide2.jpg", "/assets/slides/skyPondPhoneFormatter.jpg"]
+}, {
+  description: "An app designed for genealogists. Perhaps your ancestor inherited land in 1750? Or was paid by the Continental Army per mile of marching? This app will help you do a few necessary calculations with an unfamiliar currency.",
+  carousel: ["/assets/slides/colonialCurrencySlide1.jpg", "/assets/slides/colonialSlide2.jpg"]
+}, {
+  description: "A business simulation. In this case, a generic employee survey form populates an independent spreadsheet, and a relational database of companies and their employees is managed through the administrative pages. Java Spring Boot and Javascript.",
+  carousel: ["/assets/slides/apexSlide1.jpg"]
+}, {
+  description: "a super DUPER cool thing",
+  carousel: ["/assets/slides/apexSlide1.jpg"]
+}];
+var ProjectModal = {
+  open: function open(projectIndex) {
+    var _this = this;
+
+    this.isOpen = true;
+    this.modalBox = (0, _betterElement.BetterElement)("div", "projectModal");
+    this.innerModalDiv = (0, _betterElement.BetterElement)("div", "innerModalDiv");
+    this.descriptionDiv = (0, _betterElement.BetterElement)("div", "descriptionDiv");
+    this.descriptionText = (0, _betterElement.BetterElement)("h3", "descriptionText");
+    this.slideDiv = (0, _betterElement.BetterElement)("div", "slideDiv");
+    this.slideImageDiv = (0, _betterElement.BetterElement)("div", "slideImageDiv");
+    this.slideButtons = [(0, _betterElement.BetterElement)("button", "carouselButtons", "arrow-left"), (0, _betterElement.BetterElement)("button", "carouselButtons", "arrow-right")];
+    var xOut = (0, _betterElement.BetterElement)("h1", "xOut");
+    xOut.innerText = "X";
+    xOut.addEventListener("click", function () {
+      _this.close();
+    });
+    this.modalBox.appendChild(xOut);
+    this.descriptionText.innerText = projectInfo[projectIndex].description;
+    this.descriptionDiv.appendChild(this.descriptionText);
+    this.innerModalDiv.appendChild(this.descriptionDiv);
+    this.slideImageDiv.id = "slideImageDiv";
+    this.slideImageDiv.style.backgroundImage = "url(".concat(projectInfo[projectIndex].carousel[carouselIndex], ")");
+    this.slideDiv.appendChild(this.slideImageDiv);
+    this.slideButtons.forEach(function (button, index) {
+      button.addEventListener("click", function () {
+        moveSlides(index, projectIndex);
+      });
+
+      _this.slideDiv.appendChild(button);
+    });
+    this.innerModalDiv.appendChild(this.slideDiv);
+    this.modalBox.appendChild(this.innerModalDiv);
+    app.appendChild(this.modalBox);
+    (0, _betterElement.waitAndThen)(function () {
+      _this.modalBox.rollout("translateX(0vw)");
+    }, 100);
+    (0, _betterElement.waitAndThen)(function () {
+      _this.modalBox.classList.add("opened");
+    }, 800);
+    this.isOpen = true;
+    carouselIndex = 0;
+  },
+  close: function close() {
+    var _this2 = this;
+
+    if (this.isOpen) {
+      this.modalBox.rollout("translateX(100vw)");
+      this.modalBox.classList.remove("opened");
+      this.slideButtons.forEach(function (button) {
+        return button.removeEventListener("click", function () {
+          moveSlides(index, projectIndex);
+        });
+      });
+      (0, _betterElement.waitAndThen)(function () {
+        _this2.modalBox.eraseAllKids();
+
+        _this2.modalBox.parentElement.removeChild(_this2.modalBox);
+
+        console.log(document.getElementById("app"));
+      }, 500);
+      this.isOpen = false;
+      carouselIndex = 0;
+    }
+  }
+};
+exports.ProjectModal = ProjectModal;
+
+function moveSlides(leftOrRightButton, projectIndex) {
+  var slideImageDiv = document.getElementById("slideImageDiv");
+  var listLength = projectInfo[projectIndex].carousel.length;
+
+  if (leftOrRightButton === 1) {
+    if (carouselIndex === listLength - 1) {
+      carouselIndex = -1;
+    }
+
+    carouselIndex++;
+  } else {
+    if (carouselIndex === 0) {
+      carouselIndex = listLength;
+    }
+
+    carouselIndex--;
+  }
+
+  slideImageDiv.style.backgroundImage = "url(".concat(projectInfo[projectIndex].carousel[carouselIndex], ")");
+  console.log(carouselIndex);
+}
 },{"./betterElement.js":"components/betterElement.js"}],"components/ProjectsPanel.js":[function(require,module,exports) {
 "use strict";
 
@@ -430,49 +544,120 @@ exports.ProjectComponents = void 0;
 
 var _betterElement = require("./betterElement.js");
 
+var _ProjectModal = require("./ProjectModal.js");
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 var app = document.getElementById("app");
+
+var ProjectBox = /*#__PURE__*/function () {
+  function ProjectBox(element, projectIndex) {
+    var _this = this;
+
+    _classCallCheck(this, ProjectBox);
+
+    this.box = element;
+    this.box.addEventListener("mouseover", function () {
+      _this.highlightProject("hover");
+    });
+    this.box.addEventListener("mouseout", function () {
+      _this.highlightProject("hoverOut");
+    });
+    this.box.addEventListener("click", function () {
+      _ProjectModal.ProjectModal.open(projectIndex);
+    });
+  }
+
+  _createClass(ProjectBox, [{
+    key: "highlightProject",
+    value: function highlightProject(mouseAction) {
+      if (mouseAction === "hover") {
+        this.box.style.filter = "brightness(80%) hue-rotate(200deg) saturate(60%) invert(20%)";
+        var innerProjectHeader = (0, _betterElement.BetterElement)("h2", "innerProjectHeader");
+        var clickForDeets = "click for details";
+        var lettersIndex = 0;
+
+        function oneLetter() {
+          function changeALetter(timestamp) {
+            if (lettersIndex < clickForDeets.length + 1) {
+              innerProjectHeader.innerText = clickForDeets.substr(0, lettersIndex);
+              lettersIndex++;
+            }
+
+            requestAnimationFrame(oneLetter);
+          }
+
+          requestAnimationFrame(changeALetter);
+        }
+
+        oneLetter();
+        this.box.appendChild(innerProjectHeader);
+      } else {
+        this.box.removeChild(this.box.lastChild);
+        this.box.style.filter = "";
+      }
+    }
+  }]);
+
+  return ProjectBox;
+}();
+
 var ProjectComponents = {
   projectsContainer: (0, _betterElement.BetterElement)("div", "projectsPanel"),
   projectBoxes: {
-    1: (0, _betterElement.BetterElement)("div", "projectBox", "first"),
-    2: (0, _betterElement.BetterElement)("div", "projectBox", "second"),
-    3: (0, _betterElement.BetterElement)("div", "projectBox", "third"),
-    4: (0, _betterElement.BetterElement)("div", "projectBox", "fourth")
+    1: new ProjectBox((0, _betterElement.BetterElement)('div', 'projectBox', 'first'), 0),
+    2: new ProjectBox((0, _betterElement.BetterElement)('div', 'projectBox', 'second'), 1),
+    3: new ProjectBox((0, _betterElement.BetterElement)('div', 'projectBox', 'third'), 2),
+    4: new ProjectBox((0, _betterElement.BetterElement)('div', 'projectBox', 'fourth'), 3)
+  },
+  rollTheBoxes: function rollTheBoxes(direction) {
+    for (var project in this.projectBoxes) {
+      direction === "in" ? this.projectBoxes[project].box.rollout("translateY(-100vh)") : this.projectBoxes[project].box.rollout("translateY(100vh)");
+    }
   },
   isOpen: false,
   open: function open() {
-    var _this = this;
+    var _this2 = this;
 
-    var _loop = function _loop(box) {
-      _this.projectsContainer.appendChild(_this.projectBoxes[box]);
-
+    for (var project in this.projectBoxes) {
+      this.projectsContainer.appendChild(this.projectBoxes[project].box);
       (0, _betterElement.waitAndThen)(function () {
-        _this.projectBoxes[box].rollout("translateY(-100vh)");
+        _this2.rollTheBoxes("in");
       }, 200);
-    };
-
-    for (var box in this.projectBoxes) {
-      _loop(box);
     }
 
     app.appendChild(this.projectsContainer);
     this.isOpen = true;
   },
   close: function close() {
-    var _this2 = this;
+    var _this3 = this;
 
-    for (var box in this.projectBoxes) {
-      this.projectBoxes[box].rollout("translateY(100vh)");
-    }
+    this.rollTheBoxes("out");
+
+    _ProjectModal.ProjectModal.close();
 
     (0, _betterElement.waitAndThen)(function () {
-      app.removeChild(_this2.projectsContainer);
-    }, 200);
+      _this3.projectsContainer.eraseAllKids();
+
+      app.removeChild(_this3.projectsContainer);
+    }, 400);
     this.isOpen = false;
   }
 };
 exports.ProjectComponents = ProjectComponents;
-},{"./betterElement.js":"components/betterElement.js"}],"components/openADoor.js":[function(require,module,exports) {
+
+function closeModal() {
+  var modal = document.querySelector(".projectModal");
+  modal.rollout("translateY(0vh)");
+  (0, _betterElement.waitAndThen)(function () {
+    modal.parentElement.removeChild(modal);
+  }, 500);
+}
+},{"./betterElement.js":"components/betterElement.js","./ProjectModal.js":"components/ProjectModal.js"}],"components/openADoor.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -492,26 +677,6 @@ function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o =
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
-var aFunction = {
-  open: function open() {
-    console.log("yamminy open");
-  },
-  close: function close() {
-    console.log("yamminy close");
-  }
-};
-var aSecondFunction = {
-  donuts: "donut eater",
-  open: function open() {
-    console.log("beano open");
-  },
-  close: function close() {
-    console.log("beano close");
-  },
-  print: function print() {
-    console.log(donuts);
-  }
-};
 var AllPanelsList = {
   panels: [_ProjectsPanel.ProjectComponents, _aboutPanel.aboutCurtains, _ContactForm.ContactBox],
   closeAnyPanelIfOpen: function closeAnyPanelIfOpen() {
@@ -595,7 +760,7 @@ var onOffSwitch = true;
 var menuItems = [// "beautiful recursion",
 // "another item of note",
 // "smoke and mirrors",
-"projects", "about", "contact"];
+"current projects", "about", "contact"];
 var SideBar = (0, _betterElement.BetterElement)("div", "sideBar", "closed");
 exports.SideBar = SideBar;
 app.appendChild(SideBar);
@@ -660,7 +825,7 @@ SideBar.menuAppears = function (menuItemIndex) {
       requestAnimationFrame(function () {
         SideBar.menuAppears(menuItemIndex);
       });
-    }, 80);
+    }, 150);
   }
 
   requestAnimationFrame(menuItemPopOut);
@@ -750,13 +915,14 @@ exports.makeHeaderAndInnerComponents = makeHeaderAndInnerComponents;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.oldBike = void 0;
-var bigwheel = document.getElementById("Bigwheel");
-var smallwheel = document.getElementById("Smallwheel");
-var pennyFrame = document.getElementById('PennyFrame');
+exports.PennyFarthing = void 0;
 
-var oldBike = function oldBike(leftSpot, bigRotator, smallRotator) {
-  function placeTheWheel(timestamp) {
+var PennyFarthing = function PennyFarthing(leftSpot, bigRotator, smallRotator) {
+  var bigwheel = document.getElementById("Bigwheel");
+  var smallwheel = document.getElementById("Smallwheel");
+  var pennyFrame = document.getElementById('PennyFrame');
+
+  function placeTheWheel() {
     bigwheel.style.left = leftSpot + "px";
     bigwheel.style.transform = "rotate(".concat(bigRotator, "deg)");
     smallwheel.style.left = leftSpot + 'px';
@@ -766,9 +932,9 @@ var oldBike = function oldBike(leftSpot, bigRotator, smallRotator) {
     bigRotator += 3;
     smallRotator += 12;
 
-    if (leftSpot < window.innerWidth + 200) {
+    if (leftSpot < window.innerWidth + 100) {
       requestAnimationFrame(function () {
-        oldBike(leftSpot, bigRotator, smallRotator);
+        PennyFarthing(leftSpot, bigRotator, smallRotator);
       });
     }
   }
@@ -776,9 +942,11 @@ var oldBike = function oldBike(leftSpot, bigRotator, smallRotator) {
   requestAnimationFrame(placeTheWheel);
 };
 
-exports.oldBike = oldBike;
+exports.PennyFarthing = PennyFarthing;
 },{}],"app.js":[function(require,module,exports) {
 "use strict";
+
+var _betterElement = require("./components/betterElement.js");
 
 var _Header = require("./components/Header.js");
 
@@ -804,7 +972,8 @@ var App = /*#__PURE__*/function () {
     key: "renderBasicPage",
     value: function renderBasicPage() {
       (0, _Header.makeHeaderAndInnerComponents)();
-      (0, _pennyFarthing.oldBike)(leftSpot, bigRotator, smallRotator);
+      (0, _pennyFarthing.PennyFarthing)(leftSpot, bigRotator, smallRotator);
+      codeSnippetFloatUp();
     }
   }]);
 
@@ -812,7 +981,14 @@ var App = /*#__PURE__*/function () {
 }();
 
 App.renderBasicPage();
-},{"./components/Header.js":"components/Header.js","./components/pennyFarthing.js":"components/pennyFarthing.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function codeSnippetFloatUp() {
+  var snippetDiv = document.getElementById('pennyFarthingDiv');
+  (0, _betterElement.waitAndThen)(function () {
+    snippetDiv.style.transform = 'translateY(15vh)';
+  }, 4000);
+}
+},{"./components/betterElement.js":"components/betterElement.js","./components/Header.js":"components/Header.js","./components/pennyFarthing.js":"components/pennyFarthing.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -840,7 +1016,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62706" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60532" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -1016,5 +1192,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","app.js"], null)
 //# sourceMappingURL=/app.c328ef1a.js.map

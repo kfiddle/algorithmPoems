@@ -1,23 +1,27 @@
 html {
-    /*font-family: 'calibre-Bold', sans-serif;*/
-    font-family: 'Calibre-Bold', "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
-    letter-spacing: 0.3em;
-    
-
+  /*font-family: 'calibre-Bold', sans-serif;*/
+  font-family: "Calibre-Bold", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro",
+    "メイリオ", "Meiryo", Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+  letter-spacing: 0.3em;
 }
 
 .mainTitle {
-font-weight: 900;
-margin-bottom: 0;
+  color: white;
+  font-weight: 900;
+  margin-bottom: 0;
 }
-
 
 body {
   height: 100vh;
   width: 100vw;
   background: #cbd1d2;
+  background: linear-gradient(to Right, #cbd1d2 , #07124d);
+
 }
 
+#app {
+  overscroll-behavior: contain;
+}
 
 header {
   display: flex;
@@ -26,19 +30,23 @@ header {
   width: 100%;
   height: 10vh;
   top: 0;
-  background: #565655;
+  /* background: #565655; */
+  background: transparent;
   position: fixed;
   transform: translateY(-10vh);
   z-index: 1;
-  box-shadow: 1px 1px lightgray;
-  transition: cubic-bezier(0.4, 0, 0.58, 1) .75s;
+  /* box-shadow: 1px 1px lightgray; */
+  transition: cubic-bezier(0.4, 0, 0.58, 1) 0.75s;
 }
 
-.titleDiv{
+.titleDiv {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+}
+
+.titleDiv h2 {
+  color: white;
 }
 
 .outerNavDiv {
@@ -72,7 +80,6 @@ header {
   transition: cubic-bezier(0.3, 0, 0.5, 1) 0.25s;
 }
 
-
 #Bigwheel {
   position: absolute;
   margin-left: 5rem;
@@ -84,7 +91,6 @@ header {
   position: absolute;
   bottom: 5vh;
   margin-bottom: 1rem;
-
 }
 
 #PennyFrame {
@@ -94,5 +100,18 @@ header {
   margin-bottom: 1rem;
 }
 
+#pennyFarthingDiv {
+  position: absolute; 
+  height: 80vh;
+  width: 40vw;
+  background-image: url("/pennyFarthingSnippet.6ee42134.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  right: 10vw; 
+  transform: translateY(100vh);
+  z-index: -1;
+  transition: 3s cubic-bezier(0.4, 0, 0.4, 1);
+
+}
 
 /*# sourceMappingURL=/styles.b61e60ae.css.map */
